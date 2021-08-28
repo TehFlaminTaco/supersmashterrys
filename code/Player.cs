@@ -97,13 +97,7 @@ partial class SmashPlayer : Player
 
 	public override void StartTouch( Entity other )
 	{
-		if (other is Weapon && other.Owner is null && other.Velocity.Length > 30f){
-			/*TakeDamage(DamageInfo
-				.Generic(other.Velocity.Length / 30f)
-				.WithForce(other.Velocity / 30f)
-			);*/
-		}
-		if ( timeSinceDropped < 1 ) return;
+		if ( timeSinceDropped < 0.3 ) return;
 
 		base.StartTouch( other );
 	}

@@ -36,6 +36,7 @@ namespace Sandbox
 		public bool Swimming { get; set; } = false;
 		public bool AutoJump { get; set; } = false;
 		public bool CanDoubleJump { get; set; } = false;
+		public TimeSince CoyoteTime {get; set;} = 0f;
 
 		public Duck Duck;
 		public Unstuck Unstuck;
@@ -161,6 +162,7 @@ namespace Sandbox
 
 			// if ( underwater ) do underwater movement
 
+			if(GroundEntity != null)CoyoteTime = 0.0f;
 			if ( AutoJump ? Input.Down( InputButton.Jump ) : Input.Pressed( InputButton.Jump ) )
 			{
 				CheckJumpButton();
@@ -456,7 +458,7 @@ namespace Sandbox
 				return;
 			}
 
-			if ( GroundEntity == null )
+			if ( GroundEntity == null && CoyoteTime > 0.3f )
             {
                 if(CanDoubleJump)
                     CanDoubleJump = false;
