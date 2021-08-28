@@ -33,6 +33,11 @@ partial class SmashPlayer : Player
 		Health = 0;
 		LastAttacker=null;
 		LastAttackerWeapon=null;
+		Position = new Vector3((float)(SmashGame.rng.NextDouble()-0.5f)*2000f,(float)(SmashGame.rng.NextDouble()-0.5f)*2000f,700f + (float)SmashGame.rng.NextDouble()*300f);
+		if(IsServer){
+			var platform = new RespawnPlatform();
+			platform.Position = Position - platform.OOBBox.Center*3f - Vector3.Up*3f;
+		}
 	}
 
 	/// <summary>

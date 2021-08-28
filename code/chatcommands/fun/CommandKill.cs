@@ -9,7 +9,7 @@ public class CommandKill : Command {
     public override bool Run(Player executor, IEnumerable<string> args, bool silent){
         executor.Health = 1;
         (executor as SmashPlayer).GodMode = false;
-        executor.TakeDamage(DamageInfo.Generic(9000000f));
+        executor.OnKilled();
         ChatBox.AddChatEntry(AdminCore.SeeSilent(executor, silent), "white", "", $"⚠️ {executor.GetClientOwner().Name} killed themself."); //avatar:{executor.GetClientOwner().SteamId}
         return true;
     }

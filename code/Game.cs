@@ -71,7 +71,7 @@ public partial class SmashGame : Sandbox.Game
 	}
 
 	TimeSince lastGunDropped {get;set;} = 0f;
-	Random rng = new();
+	public static Random rng = new();
 	[Event.Tick]
 	public void RainGuns(){
 		if(Local.Pawn is not null)return;
