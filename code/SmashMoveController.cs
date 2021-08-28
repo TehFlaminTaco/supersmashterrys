@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Sandbox
 {
 	[Library]
-	public class SmashMoveController : BasePlayerController
+	public partial class SmashMoveController : BasePlayerController
 	{
 		public float SprintSpeed { get; set; } = 320.0f;
 		public float WalkSpeed { get; set; } = 150.0f;
@@ -35,6 +35,7 @@ namespace Sandbox
 		public float AirControl { get; set; } = 30.0f;
 		public bool Swimming { get; set; } = false;
 		public bool AutoJump { get; set; } = false;
+		[Net]
 		public bool CanDoubleJump { get; set; } = false;
 		public TimeSince CoyoteTime {get; set;} = 0f;
 

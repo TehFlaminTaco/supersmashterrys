@@ -8,7 +8,7 @@ class TargetHealth : Panel {
 
     public Dictionary<Player, HealthIndicator> activeHIs = new();
     public override void Tick(){
-        base.Tick();
+        //base.Tick();
         var deleteList = new List<Player>();
         deleteList.AddRange(activeHIs.Keys);
         foreach(var player in Entity.All.OfType<Player>()){
